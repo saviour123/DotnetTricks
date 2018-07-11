@@ -1,0 +1,20 @@
+using System;
+
+namespace DecisionMaking {
+    class Program {
+        static void Main (string[] args) {
+            Console.WriteLine("Enter a number: ");
+            var a = Convert.ToInt32(Console.ReadLine());
+
+            if (a < 20) {
+                Console.WriteLine("a is less than 20");
+            } else if(a == 30) {
+                Console.WriteLine("The value is not less the 20");
+            } else if(a == 30){
+                Console.WriteLine("its working welll");
+            } else {
+                Console.WriteLine("things gonna be better");
+            }
+        }
+    }
+}

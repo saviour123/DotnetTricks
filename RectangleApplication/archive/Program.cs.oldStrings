@@ -1,0 +1,37 @@
+using System;
+
+namespace StringApplication {
+    class myString{
+
+        static void Main(string[] args){
+            // string fname, lname;
+            // fname = "saviour";
+            // lname = "gidi";
+
+            // string fullname = fname + lname;
+            // Console.WriteLine("fullname is: {0}", fullname);
+
+            // DateTime waiting = new DateTime(2012, 10, 10, 17, 58, 1);
+            // string chat = String.Format("Message sent at {0:t} on {0:D}", waiting);
+            // Console.WriteLine("Message: {0}", chat);
+
+            // string str1 = "this is test";
+
+            // Console.WriteLine(str1);
+            // string substr = str1.Substring(2);
+            // Console.WriteLine(substr);
+
+            string[] strarray = new string[]{
+                "Down the way nights are dark",
+                "And the sun shines daily on the mountain top",
+                "I took a trip on a sailing ship",
+                "And when I reached Jamaica",
+                "I made a stop"
+            };
+
+            string str = String.Join("\n", strarray);
+            Console.WriteLine(str);
+        }
+
+    }
+}

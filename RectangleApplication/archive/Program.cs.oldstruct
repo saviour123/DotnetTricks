@@ -1,0 +1,20 @@
+using System;
+
+namespace EnumApplication {
+
+class EnumProgram{
+
+    enum Days { Sun, Mon, tue, Wed, thu, Fri, Sat};
+    public static void Main(String[] args){
+
+        int WeekStartDay = (int)Days.Mon;
+        int WeekendStartDay = (int)Days.Fri;
+
+        Console.WriteLine($"Monday: {WeekStartDay}");
+        Console.WriteLine($"Friday: {WeekendStartDay}");
+        Console.ReadKey();
+        
+    }
+
+}
+}

@@ -1,0 +1,33 @@
+image : microsoft/dotnet:latest
+
+stages:
+  - build
+  - deploy
+
+before_script:
+  - 'dotnet restore'
+  - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )' 
+  - mkdir -p ~/.ssh
+  - eval $(ssh-agent -s)
+  - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+
+build:
+ stage: build
+ script:
+  - 'dotnet build -o build  && echo `pwd` && pwd'
+
+stage_deploy:
+  artifacts:
+    paths:
+    - build/
+  only:
+    - dev
+  script:
+    - ssh-add <(echo "$STAGING_PRIVATE_KEY")
+      #- ssh -p22 ubunt@52.213.207.78 "mkdir htdocs/wp-content/themes/_tmp"
+    - scp -P22 -r build/* ubuntu@52.213.207.78:/tmp
+    - ssh -p22 ubuntu@52.213.207.78 "sudo su; mv /tmp/letsvouch_build/* /var/www/letsvouch; service letsvouch restart"
+    - ssh -p22 ubuntu@52.213.207.78 "rm -rf /tmp/letsvouch_build"
+    - ssh -p22 ubuntu@52.213.207.78 "tail -n 100 /var/log/syslog"
+
+

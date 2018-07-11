@@ -1,0 +1,28 @@
+using System;
+
+namespace DataTypeApplication {
+   
+   class Program {
+
+      static void Main(string[] args) {
+        //   double d = 4563.895;
+        //   int i = 75;
+        //   float f = 54.34353f;
+        //   bool b = false;
+
+        //   // cast double to int.
+        //   Console.WriteLine(i.ToString());
+        //   Console.WriteLine(d.ToString());
+        //   Console.WriteLine(f.ToString());
+        //   Console.WriteLine(b.GetHashCode());
+        const double pi = 3.142;
+
+        double r;
+        Console.WriteLine("enter radius: ");
+        r = Convert.ToDouble(Console.ReadLine());
+        double areaCircle = pi * r * r;
+        Console.WriteLine("Radius: {0}, Area: {1}", r, areaCircle);
+        Console.WriteLine();
+      }
+   }
+}

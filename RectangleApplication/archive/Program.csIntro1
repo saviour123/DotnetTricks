@@ -1,0 +1,51 @@
+using System;
+using System.Linq;
+
+namespace EnumApplication {
+
+    class EnumProgram {
+        static void Main (string[] args)
+        {
+
+            DateTime awesomeDate = new DateTime(1974, 12, 21);
+            Console.WriteLine("Day of Week : {0}", awesomeDate.DayOfWeek);
+
+            awesomeDate = awesomeDate.AddDays(4);
+            awesomeDate = awesomeDate.AddMonths(4);
+
+            Console.WriteLine(awesomeDate);
+
+            TimeSpan lunctime = new TimeSpan(12, 30, 0);
+
+            lunctime = lunctime.Subtract(new TimeSpan(0, 12, 0));
+            lunctime = lunctime.Add(new TimeSpan(0, 12, 0));
+
+            Console.WriteLine("new time : {0}", lunctime.ToString());
+
+
+            Console.WriteLine("Currency : {0:c}", 23.455);
+            Console.WriteLine("Pad with 0s : {0:d4}", 23);
+            Console.WriteLine("3 decimals : {0:f3}", 23.455);
+
+            string randString = "this is a string";
+
+            Console.WriteLine("String Length : {0}", randString.Length);
+            Console.WriteLine("String contails : {0}", randString.Contains("is"));
+            Console.WriteLine("String index : {0}", randString.IndexOf("is"));
+
+            Console.WriteLine("String replace : {0}", randString.Replace("string", "sentence"));
+            Console.WriteLine("Pad : {0}", randString.PadLeft(23, '-'));
+
+        }
+    
+    private static void SayHello()
+    {
+        string name = "";
+        Console.Write("what is your name: ");
+        name = Console.ReadLine();
+        Console.WriteLine("hello {0}", name);
+
+    }
+    
+    }
+}

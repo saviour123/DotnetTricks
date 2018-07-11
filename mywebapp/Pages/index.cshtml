@@ -1,0 +1,11 @@
+@page
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+
+<h1>Hi stefan</h1>
+
+<h2>
+    @Configuration["Message"]
+    @Configuration["Email"]
+    @Configuration["PageSize"]
+</h2>
