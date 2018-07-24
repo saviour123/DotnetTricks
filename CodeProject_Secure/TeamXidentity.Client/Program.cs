@@ -17,14 +17,14 @@ namespace TeamXidentity.Client
         {
             var discovery = await DiscoveryClient.GetAsync("http://localhost:5000");
 
-            if (discovery.IsError)
+            if (discoery.IsError)
             {
                 Console.WriteLine(discovery.Error);
                 return;
             }
 
             var tokenClient = new TokenClient(discovery.TokenEndpoint, "client", "secret");
-            var tokenResponse = await tokenClient.RequestClientCredentialsAsync("api1");
+            var tokenResponse = await tokenClient.RequestClientCredentialsAsync("openid");
 
             if (tokenResponse.IsError)
             {
