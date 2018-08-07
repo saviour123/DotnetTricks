@@ -10,10 +10,10 @@
 
   <ItemGroup>
     <PackageReference Include="identityserver4" Version="2.2.0" />
-    <PackageReference Include="identityserver4.AccessTokenValidation" Version="2.6.0" />
-    <PackageReference Include="identityserver4.entityframework" Version="2.1.1" />
+    <PackageReference Include="IdentityServer4.AccessTokenValidation" Version="2.6.0" />
+    <PackageReference Include="IdentityServer4.AspNetIdentity" Version="2.1.0" />
+    <PackageReference Include="IdentityServer4.EntityFramework" Version="2.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
-    <PackageReference Include="Npgsql" Version="4.0.2" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="2.1.1.1" />
   </ItemGroup>
 

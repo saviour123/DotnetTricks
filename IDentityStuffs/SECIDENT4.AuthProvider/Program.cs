@@ -8,13 +8,12 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
-namespace SECIDENT4.Web
+namespace SECIDENT4.AuthProvider
 {
     public class Program
     {
         public static void Main(string[] args)
         {
-            Console.Title = "API";
             CreateWebHostBuilder(args).Build().Run();
         }
 

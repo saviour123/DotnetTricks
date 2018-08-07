@@ -26,14 +26,14 @@ namespace SECIDENT4.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvcCore()
-            .AddAuthorization()
-            .AddJsonFormatters();
+                .AddAuthorization()
+                .AddJsonFormatters();
 
             services.AddAuthentication("Bearer")
             .AddIdentityServerAuthentication(options => {
-                options.ApiName = "api1";
                 options.Authority = "http://localhost:5000";
                 options.RequireHttpsMetadata = false;
+                options.ApiName = "api1";
             });
 
         }

@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/SECIDENT4.Web.csproj"
+                "${workspaceFolder}/SECIDENT4.AuthProvider.csproj"
             ],
             "problemMatcher": "$msCompile"
         }

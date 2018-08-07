@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/TeamXidentity.Client.csproj"
+                "${workspaceFolder}/SECIDENT4.Api.csproj"
             ],
             "problemMatcher": "$msCompile"
         }
