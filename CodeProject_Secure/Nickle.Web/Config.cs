@@ -59,6 +59,7 @@ namespace Nickle.Web
                     AllowedScopes = { "api1" }
                 },
 
+                // client for mvc external login and back
                 new Client
                 {
                     ClientId = "mvc",
@@ -76,7 +77,30 @@ namespace Nickle.Web
                         IdentityServerConstants.StandardScopes.OpenId,
                         IdentityServerConstants.StandardScopes.Profile
                     }
+                },
+
+                // client for hybrid login
+                new Client
+                {
+                    ClientId = "mvc1",
+                    ClientName = "MVC Client1",
+                    AllowedGrantTypes = GrantTypes.HybridAndClientCredentials,
+
+                    ClientSecrets = { new Secret("secret".Sha256()) },
+
+                    RedirectUris = { "http://localhost:5002/signin-oidc" },
+                    PostLogoutRedirectUris = { "http://localhost:5002/signout-callback-oidc" },
+
+                    AllowedScopes = new List<string>
+                    {
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        IdentityServerConstants.StandardScopes.Profile,
+                        "api1"
+                    },
+                    AllowOfflineAccess = true
                 }
+
+
             };
         }
 
