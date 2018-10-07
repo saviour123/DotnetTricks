@@ -1,52 +1,51 @@
 ﻿using System;
 using MassTransit;
 
-namespace MMT.Console
+namespace EventPublisher
 {
-    class Program
+    public interface ValueEntered
     {
+        string Value { get; }
+    }
 
-        public interface ValueEntered
+    public class Program
+    {
+        public static void Main()
         {
-            string Value { get; }
-        }
-
-        static void Main(string[] args)
-        {
-            System.Console.WriteLine("Hello World!");
-
             var busControl = ConfigureBus();
+
+            // Important! The bus must be started before using it!
             busControl.Start();
 
             do
             {
-                System.Console.WriteLine("Enter a message (or quit to exit)");
-                System.Console.Write("> ");
-                string value = System.Console.ReadLine();
+                Console.WriteLine("Enter message (or quit to exit)");
+                Console.Write("> ");
+                string value = Console.ReadLine();
 
                 if("quit".Equals(value, StringComparison.OrdinalIgnoreCase))
                     break;
 
-                busControl.Publish<ValueEntered>(new 
+                busControl. Publish<ValueEntered>(new
                 {
-                    value = value
+                    Value = value
                 });
-                
-            } while (true);
+            }
+            while (true);
+
+            busControl.Stop();
         }
 
-
-        public static IBusControl ConfigureBus()
+        static IBusControl ConfigureBus()
         {
-            return Bus.Factory.CreateUsingRabbitMq(cfg => 
+            return Bus.Factory.CreateUsingRabbitMq(cfg =>
             {
-                cfg.Host(new Uri("rabbitmq://localhost"), h =>
+                cfg.Host(new Uri("rabbitmq://localhost/"), h =>
                 {
-                    h.Username("sav");
-                    h.Password("sav");
+                    h.Username("guest");
+                    h.Password("guest");
                 });
             });
         }
-
     }
 }
