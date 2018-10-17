@@ -30,7 +30,7 @@ namespace DemoApp
   // happens, just that we can write.
   public interface IOutput
   {
-    void Write(string content);
+    void Write (string content);
   }
 
   // This implementation of the IOutput interface
@@ -39,9 +39,9 @@ namespace DemoApp
   // or Trace... or anywhere else.
   public class ConsoleOutput : IOutput
   {
-    public void Write(string content)
+    public void Write (string content)
     {
-      Console.WriteLine(content);
+      Console.WriteLine (content);
     }
   }
 
@@ -51,7 +51,7 @@ namespace DemoApp
   // is abstracted behind an interface.
   public interface IDateWriter
   {
-    void WriteDate();
+    void WriteDate ();
   }
 
   // This TodayWriter is where it all comes together.
@@ -64,14 +64,14 @@ namespace DemoApp
   public class TodayWriter : IDateWriter
   {
     private IOutput _output;
-    public TodayWriter(IOutput output)
+    public TodayWriter (IOutput output)
     {
       this._output = output;
     }
 
-    public void WriteDate()
+    public void WriteDate ()
     {
-      this._output.Write(DateTime.Today.ToShortDateString());
+      this._output.Write (DateTime.Today.ToShortDateString ());
     }
   }
 }
