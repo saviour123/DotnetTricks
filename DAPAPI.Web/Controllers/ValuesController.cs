@@ -12,9 +12,11 @@ namespace DAPAPI.Web.Controllers
     {
         // GET api/values
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        // public ActionResult<IEnumerable<string>> Get()
+        public IActionResult Get()
         {
-            return new string[] { "value1", "value2" };
+            return new JsonResult(from c in User.Claims select new {c.Type, c.Value });
+            // return new string[] { "value1", "value2" };
         }
 
         // GET api/values/5
@@ -34,6 +36,7 @@ namespace DAPAPI.Web.Controllers
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value)
         {
+
         }
 
         // DELETE api/values/5
